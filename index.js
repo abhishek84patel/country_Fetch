@@ -2,7 +2,7 @@
 
 
 // }
-// alert("hello")
+alert("hello")
 // let file= "https://restcountries.com/v3.1/all";
 // // fetch(url)
 // // // let file = "fetch_info.txt"
