@@ -2,7 +2,7 @@
 
 
 // }
-alert("hello")
+
 // let file= "https://restcountries.com/v3.1/all";
 // // fetch(url)
 // // // let file = "fetch_info.txt"
@@ -16,6 +16,7 @@ alert("hello")
 (function auto(){
     if (navigator.geolocation) {
         //button.innerText = "Allow to detect location";
+        
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     } else {
        alert( "Your browser not support");
@@ -25,7 +26,7 @@ const country0=document.getElementById("country");
 const state=document.getElementById("state");
 const code=document.getElementById("code");
 
-
+alert(latitude);
 function onSuccess(position) {
    // button.innerText = "Detecting your location...";
     let { latitude, longitude } = position.coords;
