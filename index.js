@@ -11,7 +11,7 @@
 // // .then(y => console.log(y[0]));
 // console.log("end")
 // // "https://maps.googleapis.com/maps/api/js?key=INSERT_YOUR_API_KEY&callback=initMap&v=weekly"
-const button = document.querySelector("button");
+//const button = document.querySelector("button");
 
 (function auto(){
     if (navigator.geolocation) {
@@ -47,11 +47,6 @@ function onSuccess(position) {
 
 function onError(error) {
     if (error.code == 1) {
-        button.innerText = "You denied the request";
-    } else if (error.code == 2) {
-        button.innerText = "Location is unavailable";
-    } else {
-        button.innerText = "Something went wrong";
-    }
-    button.setAttribute("disabled", "true");
+        alert("You denied the request");
+    } 
 }
