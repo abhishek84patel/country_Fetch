@@ -15,10 +15,10 @@ const button = document.querySelector("button");
 
 (function auto(){
     if (navigator.geolocation) {
-        button.innerText = "Allow to detect location";
+        //button.innerText = "Allow to detect location";
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     } else {
-        button.innerText = "Your browser not support";
+       alert( "Your browser not support");
     }
 }());
 const country0=document.getElementById("country");
@@ -27,7 +27,7 @@ const code=document.getElementById("code");
 
 
 function onSuccess(position) {
-    button.innerText = "Detecting your location...";
+   // button.innerText = "Detecting your location...";
     let { latitude, longitude } = position.coords;
     console.log(latitude, longitude)
     fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=5c8b826494f84dd8992f59b6dc73ca8c`)
