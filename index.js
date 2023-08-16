@@ -12,22 +12,13 @@ input.addEventListener("keypress", function (event) {
 });
 
 function data() {
-    fetch(`https://api.postalpincode.in/pincode/${input.value}`).then((response) => {
-        if (response.ok) {
-            return response.json();
-        }
-        throw new Error('Something went wrong');
-    })
-        .then((responseJson) => {
-            let result = responseJson[0].PostOffice[0];
-            console.log(result);
+    fetch(`https://api.postalpincode.in/pincode/${input.value}`)
+        .then((res) => res.json())
+        .then((res) => {
+            let result = res[0].PostOffice[0];
             country.value = result.Country;
-
             state.value = result.State;
             city.value = result.District;
 
-        })
-        .catch((error) => {
-            console.log(error)
-        });
+        }).catch((error) => console.log(error));
 }
