@@ -1,6 +1,7 @@
 const input = document.getElementById("zip");
 const country = document.getElementById("country");
 const state = document.getElementById("state");
+const city = document.getElementById("city");
 
 
 input.addEventListener("keypress", function (event) {
@@ -9,30 +10,24 @@ input.addEventListener("keypress", function (event) {
         data();
     }
 });
+
 function data() {
-    try {
-        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${input.value}&key=5c8b826494f84dd8992f59b6dc73ca8c`)
-            .then(res => { return res.json(); })
-            .then(data => {
+    fetch(`https://api.postalpincode.in/pincode/${input.value}`).then((response) => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Something went wrong');
+    })
+        .then((responseJson) => {
+            let result = responseJson[0].PostOffice[0];
+            console.log(result);
+            country.value = result.Country;
 
-                let result = data.results[2].components;
-                console.log(result);
-                country.value = result.country;
+            state.value = result.State;
+            city.value = result.District;
 
-                state.value = result.state;
-
-
-
-
-            }
-
-
-
-
-            );
-
-    } catch (e) {
-        console.log("error")
-    }
-
+        })
+        .catch((error) => {
+            console.log(error)
+        });
 }
