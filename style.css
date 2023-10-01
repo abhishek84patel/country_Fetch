@@ -30,7 +30,8 @@ input {
   text-transform: capitalize;
   transition: all ease-in-out 400ms;
   transform: translateY(-500%);
-  z-index: 1;
+  backdrop-filter: blur(2px);
+  border-radius: 5px;
 }
 
 .block {
