@@ -5,6 +5,7 @@ const city = document.getElementById("city");
 const err = document.querySelector(".err");
 
 
+
 input.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
         // event.preventDefault();
